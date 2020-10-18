@@ -11,14 +11,14 @@ pipeline {
         stage("Deploy role in test Docker containers") {
             steps {
                 sh """
-                    python3 -m molecule converge
+                   sudo  python3 -m molecule converge
                 """
             } //steps
         } //stage
         stage("Destroy test Docker container") {
             steps {
                 sh """
-                    python3 -m molecule destroy
+                    sudo python3 -m molecule destroy
                 """
             } //steps
         } //stage
