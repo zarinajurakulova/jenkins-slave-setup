@@ -4,21 +4,21 @@ pipeline {
         stage("Lint role using molecule") {
             steps {
                 sh """
-                    molecule lint
+                    python3 -m molecule lint
                 """
             } //steps
         } //stage
         stage("Deploy role in test Docker containers") {
             steps {
                 sh """
-                    molecule converge
+                    python3 -m molecule converge
                 """
             } //steps
         } //stage
         stage("Destroy test Docker container") {
             steps {
                 sh """
-                    molecule destroy
+                    python3 -m molecule destroy
                 """
             } //steps
         } //stage
